@@ -1,0 +1,138 @@
+[gd_scene load_steps=9 format=3 uid="uid://dgbtpec6v01ed"]
+
+[ext_resource type="FontFile" uid="uid://dvqwdp5cnc6yl" path="res://Electro.ttf" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://c36xi654iwsqb" path="res://grabber.png" id="1_h2yge"]
+[ext_resource type="FontFile" uid="uid://ceufmjad3g5ue" path="res://gost_2.304.ttf" id="1_ig7tw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dm0k"]
+bg_color = Color(0.254902, 0.458824, 0.235294, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.105882, 0.321569, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig7tw"]
+bg_color = Color(0.255025, 0.45856, 0.233405, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.106762, 0.321548, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 10
+
+[sub_resource type="Theme" id="Theme_0xm2m"]
+HSplitContainer/constants/minimum_grab_thickness = 10
+HSplitContainer/constants/separation = 20
+HSplitContainer/icons/grabber = ExtResource("1_h2yge")
+TextEdit/colors/caret_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_color = Color(0.892347, 0.727867, 0.0886876, 1)
+TextEdit/colors/search_result_color = Color(0.447059, 0.52549, 0.266667, 1)
+TextEdit/colors/selection_color = Color(0.446477, 0.526906, 0.267872, 1)
+TextEdit/constants/caret_width = 3
+TextEdit/constants/line_spacing = 0
+TextEdit/font_sizes/font_size = 50
+TextEdit/fonts/font = ExtResource("1_0xm2m")
+TextEdit/styles/focus = SubResource("StyleBoxFlat_7dm0k")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_ig7tw")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xm2m"]
+bg_color = Color(0.197937, 0.197937, 0.197937, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.393085, 0.393086, 0.393085, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.393085, 0.393086, 0.393085, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 10
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_0xm2m")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 1420
+
+[node name="sheme" type="TextEdit" parent="HSplitContainer"]
+layout_mode = 2
+
+[node name="right" type="VBoxContainer" parent="HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="menu" type="HBoxContainer" parent="HSplitContainer/right"]
+layout_mode = 2
+alignment = 1
+
+[node name="save" type="Button" parent="HSplitContainer/right/menu"]
+layout_mode = 2
+text = "save"
+
+[node name="load" type="Button" parent="HSplitContainer/right/menu"]
+layout_mode = 2
+text = "load"
+
+[node name="settings" type="Button" parent="HSplitContainer/right/menu"]
+layout_mode = 2
+text = "settings"
+
+[node name="help" type="Button" parent="HSplitContainer/right/menu"]
+layout_mode = 2
+text = "help"
+
+[node name="text" type="TextEdit" parent="HSplitContainer/right"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/selection_color = Color(0.678944, 0.678944, 0.678944, 1)
+theme_override_colors/caret_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_ig7tw")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_0xm2m")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h2yge")
+wrap_mode = 1
