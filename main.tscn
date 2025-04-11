@@ -1,49 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgbtpec6v01ed"]
+[gd_scene load_steps=7 format=3 uid="uid://dgbtpec6v01ed"]
 
-[ext_resource type="FontFile" uid="uid://dvqwdp5cnc6yl" path="res://Electro.ttf" id="1_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://c36xi654iwsqb" path="res://grabber.png" id="1_h2yge"]
+[ext_resource type="Theme" uid="uid://rgua1fc84vcq" path="res://theme.tres" id="1_1bvp3"]
 [ext_resource type="FontFile" uid="uid://ceufmjad3g5ue" path="res://gost_2.304.ttf" id="1_ig7tw"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dm0k"]
-bg_color = Color(0.254902, 0.458824, 0.235294, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.105882, 0.321569, 0, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-corner_detail = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig7tw"]
-bg_color = Color(0.255025, 0.45856, 0.233405, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.106762, 0.321548, 0, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-corner_detail = 10
-
-[sub_resource type="Theme" id="Theme_0xm2m"]
-HSplitContainer/constants/minimum_grab_thickness = 10
-HSplitContainer/constants/separation = 20
-HSplitContainer/icons/grabber = ExtResource("1_h2yge")
-TextEdit/colors/caret_color = Color(0, 0, 0, 1)
-TextEdit/colors/font_color = Color(0.892347, 0.727867, 0.0886876, 1)
-TextEdit/colors/search_result_color = Color(0.447059, 0.52549, 0.266667, 1)
-TextEdit/colors/selection_color = Color(0.446477, 0.526906, 0.267872, 1)
-TextEdit/constants/caret_width = 3
-TextEdit/constants/line_spacing = 0
-TextEdit/font_sizes/font_size = 50
-TextEdit/fonts/font = ExtResource("1_0xm2m")
-TextEdit/styles/focus = SubResource("StyleBoxFlat_7dm0k")
-TextEdit/styles/normal = SubResource("StyleBoxFlat_ig7tw")
+[ext_resource type="Script" uid="uid://d3giqud65qf8o" path="res://menu.gd" id="3_lquwl"]
+[ext_resource type="Texture2D" uid="uid://jv1y226rnig8" path="res://keyboard1.png" id="5_7mycd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xm2m"]
 bg_color = Color(0.197937, 0.197937, 0.197937, 1)
@@ -78,7 +38,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_0xm2m")
+theme = ExtResource("1_1bvp3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -108,22 +68,23 @@ size_flags_horizontal = 3
 [node name="menu" type="HBoxContainer" parent="HSplitContainer/right"]
 layout_mode = 2
 alignment = 1
+script = ExtResource("3_lquwl")
 
 [node name="save" type="Button" parent="HSplitContainer/right/menu"]
 layout_mode = 2
-text = "save"
+text = "SAVE"
 
 [node name="load" type="Button" parent="HSplitContainer/right/menu"]
 layout_mode = 2
-text = "load"
+text = "LOAD"
 
 [node name="settings" type="Button" parent="HSplitContainer/right/menu"]
 layout_mode = 2
-text = "settings"
+text = "SETTINGS"
 
 [node name="help" type="Button" parent="HSplitContainer/right/menu"]
 layout_mode = 2
-text = "help"
+text = "HELP"
 
 [node name="text" type="TextEdit" parent="HSplitContainer/right"]
 layout_mode = 2
@@ -136,3 +97,88 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_0xm2m")
 theme_override_styles/focus = SubResource("StyleBoxFlat_h2yge")
 wrap_mode = 1
+
+[node name="help" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_7mycd")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="exit" type="Button" parent="help"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="settings" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="language" type="Label" parent="Panel/settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Language"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lang" type="Button" parent="Panel/settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "ENG"
+
+[node name="text size" type="Label" parent="Panel/settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Text size"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="circuit size" type="Label" parent="Panel/settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Circuit size"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="close" type="Button" parent="Panel/settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "CLOSE"
+
+[connection signal="pressed" from="HSplitContainer/right/menu/help" to="HSplitContainer/right/menu" method="_on_help_pressed"]
+[connection signal="pressed" from="help/exit" to="HSplitContainer/right/menu" method="_on_exit_pressed"]
